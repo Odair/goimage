@@ -1,0 +1,22 @@
+{
+  "name": "fullcycle",
+  "version": "1.0.0",
+  "description": "full cycle challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Odair/goimage.git"
+  },
+  "author": "Odair",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Odair/goimage/issues"
+  },
+  "homepage": "https://github.com/Odair/goimage#readme",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
