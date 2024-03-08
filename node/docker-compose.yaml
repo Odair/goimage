@@ -1,0 +1,32 @@
+version: '3'  
+
+services: 
+  app:
+    build: .
+    entrypoint: wait-for db:3306 -t 40 -- node index.js
+    networks:
+      - odanet
+    ports:
+      - "3001:3000"
+    depends_on:
+      - db
+
+  db:
+    platform: linux/x86_64 # no MAC M1 é necessário definir o platform pro container do mysql funcionar
+    image: mysql:5.7
+    command:
+      - --innodb-use-native-aio=0
+    container_name: mysql_db
+    restart: always
+    volumes:
+      - ./data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=nodedb
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - odanet
+
+networks:
+    odanet:
+      driver: bridge  
+
